@@ -2,10 +2,8 @@ services:
   - type: web
     name: air-canada-lost-found-backend
     env: node
-    buildCommand: |
-      npm install
-      node --experimental-specifier-resolution=node_modules node_modules/.bin/tsc
-    startCommand: node dist/index.js
+    buildCommand: npm install && npm run build
+    startCommand: npm start
     envVars:
       - key: NODE_ENV
         value: production
@@ -26,10 +24,7 @@ services:
 
   - type: static
     name: air-canada-lost-found-frontend
-    buildCommand: |
-      cd frontend
-      npm install
-      npm run build
+    buildCommand: cd frontend && npm install && npm run build
     publishDir: frontend/dist
     envVars:
       - key: VITE_API_URL
