@@ -25,9 +25,8 @@ services:
   - type: static
     name: air-canada-lost-found-frontend
     buildCommand: |
-      cp -r frontend/* .
-      npm install
-      npm run build
+      chmod +x build.sh
+      ./build.sh
     publishDir: dist
     envVars:
       - key: VITE_API_URL
