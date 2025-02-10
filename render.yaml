@@ -25,13 +25,10 @@ services:
   - type: static
     name: air-canada-lost-found-frontend
     buildCommand: |
-      pwd
-      ls -la
-      cd /opt/render/project/src && pwd && ls -la
-      cd frontend && pwd && ls -la
+      cp -r frontend/* .
       npm install
       npm run build
-    publishDir: frontend/dist
+    publishDir: dist
     envVars:
       - key: VITE_API_URL
         value: https://air-canada-lost-found-backend.onrender.com
