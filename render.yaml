@@ -24,6 +24,7 @@ services:
 
   - type: static
     name: air-canada-lost-found-frontend
+    rootDir: frontend
     buildCommand: npm install && npm run build
     publishDir: dist
     envVars:
